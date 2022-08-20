@@ -1,0 +1,25 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+env:
+  USER: ${{ secrets.DOCKERHUB_USERNAME }}
+jobs:
+  docker:
+    runs-on: ubuntu-22.04
+    steps:
+      -
+        name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: notfromearth/tc:latest
