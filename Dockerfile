@@ -1,4 +1,4 @@
-FROM curlimages/curl:latest AS step1
+FROM ubuntu:kinetic AS step1
 
 WORKDIR /toolchain
 
