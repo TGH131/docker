@@ -1,4 +1,4 @@
-FROM alpine/git:latest AS step1
+FROM curlimages/curl:latest AS step1
 
 WORKDIR /toolchain
 
