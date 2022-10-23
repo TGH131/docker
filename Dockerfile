@@ -2,7 +2,7 @@ FROM ubuntu:kinetic AS step1
 
 WORKDIR /toolchain
 RUN apt -y update && apt -y install curl zstd tar
-RUN curl -Lo clang.tar.zst https://github.com/Neutron-Toolchains/clang-build-catalogue/releases/download/20102022/neutron-clang-20102022.tar.zst && tar -I zstd -xf clang.tar.zst && rm -rf clang.tar.zst && \
+RUN curl -Lo clang.tar.zst https://github.com/Neutron-Toolchains/clang-build-catalogue/releases/download/22102022/neutron-clang-22102022.tar.zst && tar -I zstd -xf clang.tar.zst && rm -rf clang.tar.zst && \
 rm -rf .git share tc/lib/cmake lib/clang/16.0.0/lib/i386-unknown-linux-gnu lib/clang/16.0.0/lib/x86_64-unknown-linux-gnu && \
 rm -f lib/LLVMgold.so lib/LLVMPolly.so bin/clang-16.org lib/libclang-cpp.so.16git lib/libLTO.so.16git 
 
