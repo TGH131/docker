@@ -4,16 +4,14 @@ WORKDIR /toolchain
 RUN apt -y update && apt -y install curl zstd tar
 RUN curl -Lo clang.tar.zst https://github.com/Neutron-Toolchains/clang-build-catalogue/releases/download/22102022/neutron-clang-22102022.tar.zst && tar -I zstd -xf clang.tar.zst && rm -rf clang.tar.zst && \
 rm -rf .git 
-FROM ubuntu:kinetic 
+
+FROM archlinux:latest
 
 USER root
 
 WORKDIR /root
 
 COPY --from=step1 /toolchain /root/tc
-
-RUN apt -y autoclean && apt -y clean && apt -y autoremove && \
-rm -rf /usr/share/man
 
 ENV GIT_SSL_NO_VERIFY=true
 
