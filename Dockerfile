@@ -2,7 +2,7 @@ FROM ubuntu:kinetic AS step1
 
 WORKDIR /toolchain
 RUN apt -y update && apt -y install curl zstd tar
-RUN curl -Lo clang.tar.zst https://github.com/Neutron-Toolchains/clang-build-catalogue/releases/download/26112022/neutron-clang-26112022.tar.zst && tar -I zstd -xf clang.tar.zst && rm -rf clang.tar.zst && \
+RUN curl -Lo clang.tar.zst https://github.com/Neutron-Toolchains/clang-build-catalogue/releases/download/17122022/neutron-clang-17122022.tar.zst && tar -I zstd -xf clang.tar.zst && rm -rf clang.tar.zst && \
 rm -rf .git 
 
 FROM archlinux:latest
