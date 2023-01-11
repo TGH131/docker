@@ -15,4 +15,4 @@ COPY --from=step1 /toolchain /root/tc
 
 ENV GIT_SSL_NO_VERIFY=true
 
-ENV PATH="${PATH}:/root/tc/bin
+ENV PATH="${PATH}:/root/tc/bin/"
